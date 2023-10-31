@@ -1,0 +1,213 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-item >
+
+      
+
+       <ion-title class="ion-text-center">
+        Facturas
+      </ion-title>
+  
+  
+    <ion-button class="navemenu" (click)="menu()">
+      <ion-icon  slot="icon-only" name="arrow-back-circle-outline" color="moreka" ></ion-icon>
+    </ion-button>
+    </ion-item>
+
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+
+
+
+
+  <!-- <div > 
+     <ion-datetime  presentation="month-year"></ion-datetime>
+  cambio Facturación en php
+  en servicio ver periodo actual y año calendario anterior
+  </div> -->
+
+
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+
+
+
+
+
+
+        <ion-card>
+          <ion-card-content>
+
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="12" size-md="6">
+
+
+                  <ion-label>
+
+                    <h1>Selecciona un mes</h1>
+
+
+                  </ion-label>
+                </ion-col>
+                <ion-col size="12" size-md="6">
+
+
+                  <ion-datetime-button  datetime="date"></ion-datetime-button>
+
+                  <ion-modal #content [keepContentsMounted]="true">
+                    <ng-template>
+                      <ion-datetime [min]="fecha_min" [(ngModel)]="fecha" presentation="month-year" id="date"></ion-datetime>
+
+
+                      <ion-button (click)="cerrar()" expand="block" fill="clear" shape="round">
+                        Aceptar
+                      </ion-button>
+
+                    </ng-template>
+
+
+                  </ion-modal>
+
+                </ion-col>
+
+                <ion-col size="6">
+
+                </ion-col>
+
+                <ion-col size="3">
+
+                  <!-- <ion-checkbox [(ngModel)]="pdf" >PDF</ion-checkbox> -->
+
+                </ion-col>
+
+                <ion-col size="3">
+
+
+
+                  <!-- <ion-checkbox [(ngModel)]="xml" >XML</ion-checkbox> -->
+                </ion-col>
+
+
+
+
+              </ion-row>
+            </ion-grid>
+
+
+
+
+            <ion-button class="btn-consulta" [disabled]="loading" (click)="mes(fecha)" expand="block" shape="round">
+              Consulta
+            </ion-button>
+
+            <div *ngIf="loading">
+
+            <ion-spinner name="dots"></ion-spinner>
+            </div>
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+  <ion-grid fixed *ngIf="consulta">
+    <!-- {{facturas|json}} -->
+    <ion-row *ngFor="let item of facturas">
+      {{item.UUID}}
+      <ion-col size="12">
+
+
+
+
+
+
+        <ion-card >
+          <ion-card-content >
+
+
+             <ion-item>
+              <ion-label class="ion-text-wrap">Nombre: {{item.nombre_receptor}}</ion-label>
+            </ion-item>
+            <ion-item>
+
+              <ion-label class="ion-text-wrap">UUID: {{item.uuid}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>FECHA: {{item.fecha_doc}}</ion-label>
+            </ion-item>
+
+
+            <ion-row>
+              <ion-col size="6">
+                <ion-button color="danger" (click)="cons(item.pdf,item.fecha_doc)" expand="block" shape="round">
+                <ion-label class="ion-text-wrap">Descargar PDF</ion-label>  
+                </ion-button>
+
+              </ion-col>
+              <ion-col size="6">
+
+                <ion-button color="warning" (click)="cons(item.xml_pdf,item.fecha_doc)"  expand="block" shape="round">
+                  <ion-label class="ion-text-wrap"> Descargar XML</ion-label>
+                </ion-button>
+
+              </ion-col>
+            </ion-row> 
+
+
+
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+
+</ion-content>

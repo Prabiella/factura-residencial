@@ -1,0 +1,182 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.logo {
+  max-width: 100px;
+  /* Ajusta el ancho de la imagen según tu preferencia */
+  height: auto;
+}
+
+ion-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 100%;
+}
+
+ion-header {
+  padding: 2em;
+  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.133333);
+  background-color: #ffffff;
+}
+
+ion-content {
+  --ion-background-color: #ffffff;
+}
+
+ion-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  color: #000;
+}
+
+/* 
+  ion-card{
+    margin: auto;
+    width: 100%;
+    // border: 1px solid rgb(223, 8, 8);
+    padding: 10px;
+  
+    --ion-background-color:  rgba(255, 255, 255, 0.877);
+  } */
+ion-card {
+  font-family: 'Poppins', sans-serif;
+  margin: auto;
+  background-color: #F0F0F0;
+  margin: 1em;
+  border-top: 0.8em solid #DF202F;
+  border-bottom: 0.8em solid #DF202F;
+  border-radius: 10px;
+  padding: 0 3em;
+  box-shadow: 2px 0px 6px 4px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 2px 0px 6px 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 2px 0px 6px 4px rgba(0, 0, 0, 0.1);
+}
+
+ion-label {
+  --color: #000;
+}
+
+ion-spinner {
+  display: block;
+  margin: auto;
+  transform: scale(1);
+}
+
+table {
+  width: 100%;
+}
+
+.navemenu::part(native) {
+  background: #DF202F;
+}
+
+ion-button {
+  display: flex;
+  justify-content: center;
+  padding: 2em 0;
+}
+
+.btn-guardar::part(native) {
+  background: #DF202F;
+  width: 224px;
+  height: 63px;
+  box-shadow: 0px 3px 20px #8d8d8d;
+  border-radius: 32px;
+}
+
+.mat-column-idcatalogo {
+  width: 10px;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.mat-column-nombre {
+  width: 10px;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.mat-column-rfc {
+  width: 10px;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.mat-column-telefono {
+  width: 10px;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.mat-column-cuenta {
+  width: 10px;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.mat-column-banco {
+  width: 10px;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.mat-column-options {
+  width: 10px;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-right: 10px;
+  text-align: center;
+}
+
+ion-item {
+  --ion-item-background: transparent;
+}
+
+.mobile-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-container {
+  margin-bottom: 10px;
+  /* Espacio entre la imagen y el título */
+}
+
+.logo {
+  max-width: 100px;
+  /* Ajusta el ancho de la imagen según tu preferencia */
+  height: auto;
+}
+
+@media screen and (max-width: 425px) {
+  ion-card {
+    max-width: 100%;
+    padding: 0 1em;
+  }
+  .mobile-stack {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+}

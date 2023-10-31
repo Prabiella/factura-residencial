@@ -1,0 +1,7 @@
+{
+  "name": "estado-de-cuenta-residencial",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Factura fiscal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-label text-wrap class="ion-text-justify-mobile">IMPORTANTE: Suscriptores Telmex solo se puede expedir una factura fiscal, cuando la facturación no es enviada a su recibo teléfonico y realiza pago en efectivo </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-select label="Selecciona una opción" label-placement="floating">
+                <ion-select-option value="primera">Primera ocasión</ion-select-option>
+                <ion-select-option value="segunda">Rellamado solicitud</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

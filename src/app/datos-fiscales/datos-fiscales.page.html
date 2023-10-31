@@ -1,0 +1,189 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item >
+       <ion-title class="ion-text-center"> Datos fiscales </ion-title>  
+    <ion-button class="navemenu" (click)="menu()">
+      <ion-icon  slot="icon-only" name="arrow-back-circle-outline" color="moreka" ></ion-icon>
+    </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="10">
+        <ion-card>
+          <ion-card-content>
+
+            <form [formGroup]="jobForm" (ngSubmit)="save()">
+              <div class="mb-3">
+                <ion-item>
+                  <ion-label value="rfc" class="form-label" position="floating">RFC</ion-label>
+                  <ion-input placeholder="Enter text" type="text" class="form-control" id="rfc"
+                    formControlName="rfc"></ion-input>
+                </ion-item>
+                <span *ngIf="this.jobForm.get('rfc')?.errors?.['minlength']">
+                  (Debe tener 13 caracteres, no caracteres especiales)
+                </span>
+              </div>
+
+              <div class="mb-3">
+                <ion-item>
+                  <ion-label value="razon" class="form-label" position="floating">Razón Social</ion-label>
+                  <ion-input placeholder="Enter text" type="text" class="form-control" id="razon"
+                    formControlName="razon"></ion-input>
+                </ion-item>
+              </div>
+
+
+              <div class="mb-3">
+                <ion-item>
+                  <!-- <ion-select label="edad" label-placement="floating" formControlName="edad">
+                    <ion-select-option [value]="apple">Apple</ion-select-option>
+                    <ion-select-option [value]="banana">Banana</ion-select-option>
+                    <ion-select-option [value]="orange">Orange</ion-select-option>
+
+                      <ion-select *ngIf="razones"  (ionChange)="selectrazon(cliente)" [(ngModel)]="cliente" cancelText="Cancel" label="Selecciona razón social" label-placement="floating">
+  
+                  <ion-select-option *ngFor="let item of razones.message"  [value]="item.num_suscriptor" > {{item.sucursal}} - {{item.razon_social}} - {{item.num_suscriptor}}  </ion-select-option>
+  
+                </ion-select>
+                  </ion-select> -->
+                  <ion-select label="Selecciona un regimen fiscal" label-placement="floating" okText="ok"
+                    cancelText="cancel" formControlName="regimen" value="regimen">
+
+                    <ion-select-option value="601">General de ley personas morales</ion-select-option>
+                    <ion-select-option value="603">Personas morales con fines no lucrativos</ion-select-option>
+                    <ion-select-option value="605">Sueldos y salarios e ingresos asimilados a
+                      salarios</ion-select-option>
+
+
+                  </ion-select>
+               
+                </ion-item>
+        <span *ngIf="this.jobForm.get('regimen')?.errors?.['minlength']">
+                    (Debe seleccionar una opción)
+                  </span>
+              </div>
+
+
+              <div class="mb-3">
+                <ion-item>
+                  <ion-select label="Selecciona un uso de CFDI" label-placement="floating" okText="ok"
+                    cancelText="cancel" formControlName="cfdi" value="cfdi">
+
+                    <ion-select-option value="G03">Gastos en general</ion-select-option>
+                    <ion-select-option value="I02">Mobiliario y equipo de oficina por inversiones</ion-select-option>
+                    <ion-select-option value="I03">Equipo de transporte</ion-select-option>
+
+
+                  </ion-select>
+                </ion-item>
+              </div>
+
+
+
+              <div class="mb-3">
+                <ion-item>
+                  <ion-label value="email" class="form-label" position="floating">Correo electrónico</ion-label>
+                  <ion-input placeholder="Enter text" type="text" class="form-control" id="email"
+                    formControlName="email"></ion-input>
+                </ion-item>
+              </div>
+
+              <!-- calle -->
+              <div class="mb-3">
+                <ion-item>
+                  <ion-label value="calle" class="form-label" position="floating">Calle</ion-label>
+                  <ion-input placeholder="Enter text" type="text" class="form-control" id="calle"
+                    formControlName="calle"></ion-input>
+                </ion-item>
+              </div>
+
+              <!-- num interior -->
+              <div class="mb-3">
+                <ion-item>
+                  <ion-label value="numi" class="form-label" position="floating">Numero interior</ion-label>
+                  <ion-input placeholder="Enter text" type="text" class="form-control" id="numi"
+                    formControlName="numi"></ion-input>
+                </ion-item>
+              </div>
+
+              <!-- num exterior -->
+              <div class="mb-3">
+                <ion-item>
+                  <ion-label value="nume" class="form-label" position="floating">Numero exterior</ion-label>
+                  <ion-input placeholder="Enter text" type="text" class="form-control" id="nume"
+                    formControlName="nume"></ion-input>
+                </ion-item>
+              </div>
+
+              <!-- colonia -->
+              <div class="mb-3">
+                <ion-item>
+                  <ion-label value="colonia" class="form-label" position="floating">Colonia</ion-label>
+                  <ion-input placeholder="Enter text" type="text" class="form-control" id="colonia"
+                    formControlName="colonia"></ion-input>
+                </ion-item>
+              </div>
+
+              <!-- municipio -->
+              <div class="mb-3">
+                <ion-item>
+                  <ion-label value="municipio" class="form-label" position="floating">Municipio</ion-label>
+                  <ion-input placeholder="Enter text" type="text" class="form-control" id="municipio"
+                    formControlName="municipio"></ion-input>
+                </ion-item>
+              </div>
+
+              <!-- cp -->
+              <div class="mb-3">
+                <ion-item>
+                  <ion-label value="cp" class="form-label" position="floating">CP</ion-label>
+                  <ion-input placeholder="Enter text" type="text" class="form-control" id="cp"
+                    formControlName="cp"></ion-input>
+                </ion-item>
+              </div>
+
+              <!-- estado -->
+              <div class="mb-3">
+                <ion-item>
+                  <ion-select label="Selecciona un estado" label-placement="floating" okText="ok"
+                    cancelText="cancelar" formControlName="estado" value="estado">
+
+                    <ion-select-option value="CDMX">Ciudad de México</ion-select-option>
+                    <ion-select-option value="Hidalgo">Hidalgo</ion-select-option>
+                    <ion-select-option value="Morelos">Morelos</ion-select-option>
+
+
+                  </ion-select>
+                </ion-item>
+              </div>
+
+
+
+
+
+              <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+            </form>
+
+            <ion-button class="btn-guardar" (click)="save()" expand="block" shape="round">
+              Guardar
+            </ion-button>
+
+
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+</ion-content>

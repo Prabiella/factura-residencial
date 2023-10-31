@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="logo-container">
+      <img src="../../assets/logodish.svg" alt="LogoDish" class="logo" />
+    </div>
+    <ion-title class="ion-text-center">Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-content>
+            <ion-grid fixed>
+              <ion-row class="ion-align-items-center ion-justify-content-center"> <!-- Centra los elementos -->
+                <ion-col size="12" size-md="auto"> <!-- En dispositivos desktop, ajusta el ancho automáticamente -->
+                  <ion-button class="btn-menu" (click)="facturas()" expand="block" shape="round">
+                    <ion-label text-wrap>Consulta de facturas</ion-label>
+                  </ion-button>
+                </ion-col>
+                <ion-col size="12" size-md="auto"> <!-- En dispositivos desktop, ajusta el ancho automáticamente -->
+                  <ion-button class="btn-menu" (click)="datos()" expand="block" shape="round">
+                    <ion-label text-wrap>Actualización de datos fiscales</ion-label>
+                  </ion-button>
+                </ion-col>
+                <ion-col size="12" size-md="auto"> <!-- En dispositivos desktop, ajusta el ancho automáticamente -->
+                  <ion-button class="btn-menu" expand="block" shape="round">
+                    <ion-label text-wrap>Solicitud de factura recurrente</ion-label>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
